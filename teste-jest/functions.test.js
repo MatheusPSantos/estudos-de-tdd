@@ -40,6 +40,22 @@ test("Should be admin in usernames", () => {
   expect(usernames).toContain("admin");
 });
 
+// Working whit async data
+//Promisse
+test("Fetched user should by Leanne Graham", () => {
+  //   expect.assertions(1);
+  return functions.fetchUser().then(data => {
+    expect(data.name).toEqual("Leanne Graham");
+  });
+});
+
+// Async await sintax
+test("Fetched user should be leanne graham", async () => {
+  expect.assertions(1);
+  const data = await functions.fetchUser();
+  expect(data.name).toEqual("Leanne Graham");
+});
+
 // Checar para TRUTHY & FALSE Values
 
 // toBeUndefined matchs only undefined
