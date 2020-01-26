@@ -1,5 +1,35 @@
 const functions = require("./functions");
 
+// beforeEach(() => {
+//   initDatabse();
+// });
+
+// afterEach(() => {
+//   closeDatabse();
+// });
+
+beforeAll(() => {
+  initDatabse();
+});
+
+afterAll(() => {
+  closeDatabse();
+});
+
+const nameCheck = () => console.log("Checking...");
+
+describe("Checking name", () => {
+  beforeEach(() => nameCheck());
+  test("User is Jeff", () => {
+    const user = "Jeff";
+    expect(user).toBe("Jeff");
+  });
+  test("User is Karen", () => {
+    const user = "Karen";
+    expect(user).toBe("Karen");
+  });
+});
+
 // primeiro teste
 test("Add 2 + 2 to equal 4", () => {
   expect(functions.add(2, 2)).toBe(4);
@@ -60,3 +90,12 @@ test("Fetched user should be leanne graham", async () => {
 
 // toBeUndefined matchs only undefined
 // toBeTruthy matches anything that an if statement treats as true
+
+const initDatabse = () => {
+  console.log('Databse initialized...');
+}
+
+const closeDatabse = () => {
+  console.log('Databse closed...');
+}
+
